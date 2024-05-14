@@ -43,11 +43,12 @@ RUN /root/.bun/bin/bun --version
 # Bunがインストールされている場所をパスに追加
 ENV PATH /root/.bun/bin:$PATH
 
-# JavaScriptの依存関係の追加
-RUN bun add tailwindcss autoprefixer daisyui
-
 # アプリケーションのコピー
 COPY . /app
+
+# JavaScriptの依存関係の追加
+RUN bun add tailwindcss daisyui
+RUN bun install
 
 # ポート3000を公開
 EXPOSE 3000

@@ -1,9 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { App } from './App'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import AfterLoginPage from './AfterLoginPage';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/after_login">
+          <AfterLoginPage />
+        </Route>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
