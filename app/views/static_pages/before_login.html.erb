@@ -9,3 +9,11 @@
 
 <%= render 'google_login_api/callback' %>
 </div>
+
+<h1>GitHub Login</h1>
+
+<% if @auth_url %>
+  <%= link_to 'Login with GitHub', @auth_url, class: 'btn btn-primary' %>
+<% else %>
+  <p>Authentication link not available.</p>
+<% end %>
